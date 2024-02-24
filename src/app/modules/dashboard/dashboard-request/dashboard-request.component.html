@@ -1,115 +1,79 @@
-<div class="p-5">
-    <div class="row mb-5">
+<div class="pt-4 container">
+  <div>
+    <a
+      class="h3 text-secondary fw-bold text-decoration-none"
+      routerLink="/dashboard"
+      >Dashbaord >
+    </a>
+    <span class="h3 fw-bold">Request the Job</span>
+  </div>
+  <hr />
+  <div class="card">
+    <div class="bg-warning p-2 widget-user-header"></div>
+    <div class="card-body p-4">
+      <div class="row mb-3">
+        <div class="col-7">
+          <label for="exampleFormControlInput1" class="form-label">
+            Request Name
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+        <div class="col-5">
+          <label for="exampleFormControlInput1" class="form-label">
+            Telephone
+          </label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleFormControlInput1"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="exampleFormControlInput1" class="form-label">
+            Place
+          </label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="exampleFormControlInput1" class="form-label">
+            Request To
+          </label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-10">
+          <label for="exampleFormControlTextarea1" class="form-label">
+            Example textarea
+          </label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row">
         <div class="col-3">
-            <div class="card" >
-                <div class="bg-warning p-3 widget-user-header">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="img-circle elevation-2" src="../../../../assets/icon/letter-m.png" alt="User Avatar">
-                        </div>
-                        <div class="col-9 pt-2">
-                            <h2>work manage</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="btn btn-primary">Request Job</a>
-                </div>
-            </div>
+          <button type="button" class="btn btn-primary">Send Request</button>
         </div>
-        <div class="col-3">
-            <div class="card" >
-                <div class="bg-warning p-3 widget-user-header">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="img-circle elevation-2" src="../../../../assets/icon/letter-m.png" alt="User Avatar">
-                        </div>
-                        <div class="col-9 pt-2">
-                            <h2>work manage</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="btn btn-primary">Request Job</a>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
-    <div class="row">
-        <div class="col-12">
-            <div class="card p-4">
-                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-                    <li [ngbNavItem]="1">
-                        <button ngbNavLink>Job status 1</button>
-                        <ng-template ngbNavContent>
-                            <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </ng-template>
-                    </li>
-                    <li [ngbNavItem]="2">
-                        <button ngbNavLink>Job status 2</button>
-                        <ng-template ngbNavContent>
-                            <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </ng-template>
-                    </li>
-                </ul>
-                <div [ngbNavOutlet]="nav" class="mt-2"></div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
