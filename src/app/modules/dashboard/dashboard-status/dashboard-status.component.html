@@ -1,124 +1,46 @@
 <div class="pt-4 container">
-    <div class="mb-2">
-        <span class="h3 fw-bold">Dashbaord</span>
+  <div class="mb-2">
+    <span class="h3 fw-bold">Dashbaord</span>
+  </div>
+  <hr />
+  <div class="row mb-5">
+    <div class="col-4">
+      <app-request-card
+        [cardName]="'Maintenance Job'"
+        [directRoute]="'maintenance'"
+        [headersBg]="'bg-danger'"
+      ></app-request-card>
     </div>
-    <hr>
-    <div class="row mb-5">
-        <div class="col-4">
-            <div class="card" >
-                <div class="bg-warning p-3 widget-user-header">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="img-circle elevation-2" src="../../../../assets/icon/letter-m.png" alt="User Avatar">
-                        </div>
-                        <div class="col-9 pt-2">
-                            <h2>work manage</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <a routerLink="/dashboard/request_job/fix" class="btn btn-primary">Request Job Fix</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-4">
-            <div class="card" >
-                <div class="bg-warning p-3 widget-user-header">
-                    <div class="row">
-                        <div class="col-2">
-                            <img class="img-circle elevation-2" src="../../../../assets/icon/letter-m.png" alt="User Avatar">
-                        </div>
-                        <div class="col-9 pt-2">
-                            <h2>work manage</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <a href="#" class="btn btn-primary">Request Job</a>
-                </div>
-            </div>
-        </div>
+    <div class="col-4">
+      <app-request-card
+        [cardName]="'Housekeeper Job'"
+        [directRoute]="'housekeeper'"
+        [headersBg]="'bg-warning'"
+      ></app-request-card>
     </div>
-    <div>
-        <span class="h3 fw-bold">Job Status</span>
+  </div>
+  <div>
+    <span class="h3 fw-bold">Job Status</span>
+  </div>
+  <hr />
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="bg-warning p-2 widget-user-header"></div>
+        <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+          <li [ngbNavItem]="1">
+            <button ngbNavLink>Job maintenance status</button>
+            <ng-template ngbNavContent>
+              <app-status-table [jobType]="'maintenance'"></app-status-table>
+            </ng-template>
+          </li>
+          <li [ngbNavItem]="2">
+            <button ngbNavLink>Job housekeeper status</button>
+            <ng-template ngbNavContent> </ng-template>
+          </li>
+        </ul>
+        <div [ngbNavOutlet]="nav" class="mt-2"></div>
+      </div>
     </div>
-    <hr>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="bg-warning p-2 widget-user-header"></div>
-                <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
-                    <li [ngbNavItem]="1">
-                        <button ngbNavLink>Job status 1</button>
-                        <ng-template ngbNavContent>
-                            <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </ng-template>
-                    </li>
-                    <li [ngbNavItem]="2">
-                        <button ngbNavLink>Job status 2</button>
-                        <ng-template ngbNavContent>
-                            <table class="table table-striped">
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </ng-template>
-                    </li>
-                </ul>
-                <div [ngbNavOutlet]="nav" class="mt-2"></div>
-            </div>
-        </div>
-    </div>
+  </div>
 </div>
