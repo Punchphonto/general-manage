@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-
-
+import { AuthenService } from '../../serivces/auth-services/authen.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -9,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class TopBarComponent {
 
+  constructor(public auth: AuthenService) {
+
+  }
+
+  logOut() {
+    this.auth.logout()
+  }
 }

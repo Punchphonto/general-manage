@@ -8,6 +8,9 @@ import { DashboardRequestComponent } from './dashboard-request/dashboard-request
 import { DashboardStatusComponent } from './dashboard-status/dashboard-status.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from '../../serivces/auth-services/auth-guard.service';
+
 
 
 
@@ -24,7 +27,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FontAwesomeModule,
     NgbNavModule,
     FormsModule,
-    ReactiveFormsModule
-  ]
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
+  providers: [AuthGuardService]
 })
 export class DashboardModule { }

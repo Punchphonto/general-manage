@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRequestComponent } from './dashboard-request/dashboard-request.component';
 import { DashboardStatusComponent } from './dashboard-status/dashboard-status.component';
+import { AuthGuardService } from '../../serivces/auth-services/auth-guard.service';
 
 
 @NgModule({
@@ -10,8 +11,8 @@ import { DashboardStatusComponent } from './dashboard-status/dashboard-status.co
     {
       path: '', component: DashboardComponent,
       children: [
-        { path: '', component: DashboardStatusComponent },
-        { path: 'request_job/:job_type', component: DashboardRequestComponent },
+        { path: '', component: DashboardStatusComponent, canActivate: [AuthGuardService] },
+        { path: 'request_job/:job_type', component: DashboardRequestComponent, canActivate: [AuthGuardService] },
       ]
     }
   ])],
