@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthenService } from '../../serivces/auth-services/authen.service';
 
 @Component({
@@ -6,13 +6,19 @@ import { AuthenService } from '../../serivces/auth-services/authen.service';
   templateUrl: './top-bar.component.html',
   styleUrls: ['./top-bar.component.scss']
 })
-export class TopBarComponent {
+export class TopBarComponent implements OnInit {
+
+  public current_user: string = '';
 
   constructor(public auth: AuthenService) {
 
   }
 
-  logOut() {
+  ngOnInit(): void {
+    this.current_user = String(sessionStorage.getItem('user_name'));
+  }
+
+  public logOut() {
     this.auth.logout()
   }
 }

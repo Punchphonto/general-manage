@@ -10,8 +10,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let job of jobList; let i = index">
-      <td>{{ i + 1 }}</td>
+    <tr *ngFor="let job of jobListShow; let i = index">
+      <td>{{ job.id | displaJobId }}</td>
       <td>{{ job.job_topic }}</td>
       <td>{{ job.place_name }}</td>
       <td>{{ job.request_name }}</td>
@@ -31,3 +31,12 @@
     </tr>
   </tbody>
 </table>
+<div>
+  <ngb-pagination
+    [collectionSize]="collectionSize"
+    [(page)]="page"
+    [pageSize]="pageSize"
+    (pageChange)="refreshPage()"
+  >
+  </ngb-pagination>
+</div>

@@ -10,6 +10,7 @@ import { AdminAuthGuardService } from '../../serivces/auth-services/admin-auth-g
 import { ShareComponentModule } from '../../share-component/share-component.module';
 import { JobDataServiceService } from '../../serivces/api-services/job-data-service.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     ShareComponentModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [
     AdminAuthGuardService,

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { JobDataServiceService } from '../../../serivces/api-services/job-data-service.service'
 import { Person, Place, JobStatus, CreateJob } from '../../../models/models'
 import { Router, ActivatedRoute } from '@angular/router';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class DashboardRequestComponent implements OnInit {
   public personList: Person[] = [];
   public jobCreate: CreateJob = new CreateJob();
   public jobType: string = '';
+  public faPaperPlane = faPaperPlane;
 
   constructor(private job: JobDataServiceService, public router: Router, private route: ActivatedRoute) { }
 

@@ -1,6 +1,8 @@
 <div class="pt-4 container">
   <div class="mb-2">
-    <span class="h3 fw-bold">Dashbaord</span>
+    <span class="h3 fw-bold"
+      ><fa-icon [icon]="faClipboard" class="p-1"></fa-icon> Dashbaord</span
+    >
   </div>
   <hr />
   <div class="row mb-5">
@@ -26,18 +28,22 @@
   <div class="row">
     <div class="col-12">
       <div class="card">
-        <div class="bg-warning p-2 widget-user-header"></div>
+        <div class="bg-warning p-2 widget-user-header mb-2"></div>
         <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
           <li [ngbNavItem]="1">
             <button ngbNavLink>Job maintenance status</button>
             <ng-template ngbNavContent>
-              <app-status-table [jobType]="'maintenance'"></app-status-table>
+              <div class="p-4">
+                <app-status-table [jobType]="'maintenance'"></app-status-table>
+              </div>
             </ng-template>
           </li>
           <li [ngbNavItem]="2">
             <button ngbNavLink>Job housekeeper status</button>
             <ng-template ngbNavContent>
-              <app-status-table [jobType]="'housekeeper'"></app-status-table>
+              <div class="p-4">
+                <app-status-table [jobType]="'housekeeper'"></app-status-table>
+              </div>
             </ng-template>
           </li>
         </ul>
