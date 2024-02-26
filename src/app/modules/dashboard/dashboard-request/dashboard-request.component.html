@@ -1,0 +1,106 @@
+<div class="pt-4 container">
+  <div>
+    <a
+      class="h3 text-secondary fw-bold text-decoration-none"
+      routerLink="/dashboard"
+      >Dashbaord >
+    </a>
+    <span class="h3 fw-bold">Request Job</span>
+  </div>
+  <hr />
+  <div class="card">
+    <div class="bg-warning p-2 widget-user-header"></div>
+    <div class="card-body p-4">
+      <div class="row mb-3">
+        <div class="col-7">
+          <label for="exampleFormControlInput1" class="form-label">
+            Request Name
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="jobCreate.request_name"
+          />
+        </div>
+        <div class="col-5">
+          <label for="exampleFormControlInput1" class="form-label">
+            Telephone
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            [(ngModel)]="jobCreate.telephone"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-6">
+          <label for="exampleFormControlInput1" class="form-label">
+            Place
+          </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="jobCreate.place"
+          >
+            <option *ngFor="let place of placeList" value="{{ place.id }}">
+              {{ place.name }}
+            </option>
+          </select>
+        </div>
+        <div class="col-6">
+          <label for="exampleFormControlInput1" class="form-label">
+            Request To
+          </label>
+          <select
+            class="form-select"
+            aria-label="Default select example"
+            [(ngModel)]="jobCreate.rsponsible_person"
+          >
+            <option *ngFor="let person of personList" value="{{ person.id }}">
+              {{ person.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-8">
+          <label for="exampleFormControlTextarea1" class="form-label">
+            Topic
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleFormControlInput1"
+            [(ngModel)]="jobCreate.job_topic"
+          />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-8">
+          <label for="exampleFormControlTextarea1" class="form-label">
+            Request Detail
+          </label>
+          <textarea
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+            [(ngModel)]="jobCreate.job_detail"
+          ></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="sendRequestJob()"
+          >
+            Send Request
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
