@@ -7,6 +7,17 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - angular/cli  version 16.1.8
 - run command nmp install 
 
+
+## to login after run back-end
+Admin 
+username = admin
+password = pP-111111
+
+User
+username = user
+password = pP-222222
+
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
