@@ -13,9 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AuthGuardService } from '../../serivces/auth-services/auth-guard.service';
 import { JobDataServiceService } from '../../serivces/api-services/job-data-service.service';
 
-
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

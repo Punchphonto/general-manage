@@ -12,7 +12,7 @@ import { AdminAuthGuardService } from '../../serivces/auth-services/admin-auth-g
       path: '', component: AdminDashboardComponent,
       children: [
         { path: '', component: AdminJobStatusComponent, canActivate: [AdminAuthGuardService] },
-        { path: 'update/:job_id/:job_type', component: AdminJobUpdateComponent, canActivate: [AdminAuthGuardService] },
+        { path: 'update/:job_type/:job_id', component: AdminJobUpdateComponent, canActivate: [AdminAuthGuardService] },
       ]
     }
   ])],

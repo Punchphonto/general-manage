@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="{{ headersBg }} p-3 widget-user-header"></div>
+  <div class="card-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th scope="col">Topic</th>
+          <th scope="col">Place</th>
+          <th scope="col">Request by</th>
+          <th scope="col">Request to</th>
+          <th scope="col">Status</th>
+          <th scope="col">update</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let job of jobList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ job.job_topic }}</td>
+          <td>{{ job.place_name }}</td>
+          <td>{{ job.request_name }}</td>
+          <td>{{ job.rsponsible_person_name }}</td>
+          <td>
+            <span
+              [ngClass]="{
+                'badge text-bg-danger': job.status_name == 'pending'
+              }"
+              >{{ job.status_name }}
+            </span>
+          </td>
+          <td>
+            <a class="btn btn-primary" (click)="goToupdatePage(job.id)"
+              >update</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

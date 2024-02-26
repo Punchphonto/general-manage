@@ -25,7 +25,6 @@ export class StatusTableComponent implements OnInit {
   public getJobListMaintenance() {
     this.job.getAllMaintanaceJob().subscribe((res: Job[]) => {
       this.jobList = res;
-
     })
   }
 }

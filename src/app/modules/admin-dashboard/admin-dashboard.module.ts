@@ -7,6 +7,9 @@ import { AdminJobUpdateComponent } from '../admin-dashboard/admin-job-update/adm
 import { LayoutModule } from '../../layout/layout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminAuthGuardService } from '../../serivces/auth-services/admin-auth-guard.service';
+import { ShareComponentModule } from '../../share-component/share-component.module';
+import { JobDataServiceService } from '../../serivces/api-services/job-data-service.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -20,8 +23,14 @@ import { AdminAuthGuardService } from '../../serivces/auth-services/admin-auth-g
     CommonModule,
     AdminDashboardRoutingModule,
     LayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ShareComponentModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [AdminAuthGuardService]
+  providers: [
+    AdminAuthGuardService,
+    JobDataServiceService
+  ]
 })
 export class AdminDashboardModule { }

@@ -16,7 +16,12 @@
       <td>{{ job.place_name }}</td>
       <td>{{ job.request_name }}</td>
       <td>{{ job.rsponsible_person_name }}</td>
-      <td>{{ job.status_name }}</td>
+      <td>
+        <span
+          [ngClass]="{ 'badge text-bg-danger': job.status_name == 'pending' }"
+          >{{ job.status_name }}
+        </span>
+      </td>
     </tr>
   </tbody>
 </table>
