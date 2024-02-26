@@ -17,13 +17,13 @@ export class StatusTableComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.jobType == 'maintenance') {
-      this.getJobListMaintenance()
-    }
+
+    this.getJobList()
+
   }
 
-  public getJobListMaintenance() {
-    this.job.getAllMaintanaceJob().subscribe((res: Job[]) => {
+  public getJobList() {
+    this.job.getAllJobs(this.jobType).subscribe((res: Job[]) => {
       this.jobList = res;
     })
   }

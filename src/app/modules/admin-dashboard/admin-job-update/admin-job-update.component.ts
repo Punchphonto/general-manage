@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AdminJobUpdateComponent implements OnInit {
 
-  public updateJob!: Job;
+  public updateJob: Job = new Job();
   public statusList: JobStatus[] = [];
   public jobType: string = '';
   public jobId: number = 0;
@@ -20,27 +20,21 @@ export class AdminJobUpdateComponent implements OnInit {
 
   }
   async ngOnInit() {
-
     await this.route.paramMap.subscribe(params => {
       this.jobType = String(params.get('job_type'))
       this.jobId = Number(params.get('job_id'))
     })
-
-    await this.job.getJobStatus().subscribe((res: JobStatus[]) => {
+    await this.job.getJobStatus(this.jobType).subscribe((res: JobStatus[]) => {
       this.statusList = res
     })
-
-    if (this.jobType == 'maintenance') {
-      await this.job.getMaintanaceJobById(this.jobId).subscribe((res: Job) => {
-        this.updateJob = res
-        this.updateStatusId = res.status
-      })
-    }
-
+    await this.job.getMaintanaceJobById(this.jobId, this.jobType).subscribe((res: Job) => {
+      this.updateJob = res
+      this.updateStatusId = res.status
+    })
   }
 
   public updateStatus() {
-    this.job.updateJobStatus(this.jobId, this.updateStatusId).subscribe((res: any) => {
+    this.job.updateJobStatus(this.jobId, this.updateStatusId, this.jobType).subscribe((res: any) => {
       if (res.success) {
         this.router.navigateByUrl('/');
       }

@@ -36,7 +36,9 @@
           </li>
           <li [ngbNavItem]="2">
             <button ngbNavLink>Job housekeeper status</button>
-            <ng-template ngbNavContent> </ng-template>
+            <ng-template ngbNavContent>
+              <app-status-table [jobType]="'housekeeper'"></app-status-table>
+            </ng-template>
           </li>
         </ul>
         <div [ngbNavOutlet]="nav" class="mt-2"></div>

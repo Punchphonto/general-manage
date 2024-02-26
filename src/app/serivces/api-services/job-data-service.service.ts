@@ -9,44 +9,80 @@ import { CreateJob } from '../../models/models'
 })
 export class JobDataServiceService {
 
-  public baseUrl = environment.AUTH_API_URL
+  public maintennanceBaseUrl = environment.MAINTAINNACE_API_URL
+  public housekeeperBaseUrl = environment.HOUSEKEEPER_API_URL
 
   constructor(private http: HttpClient) { }
 
-  public getAllMaintanaceJob(): any {
-    const url = this.baseUrl + 'jobrequest/'
+  public getAllJobs(jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'jobrequest/'
+    } else {
+      url = this.housekeeperBaseUrl + 'jobrequest/'
+    }
     return this.http.get(url);
   }
 
-  public getMaintanaceJobById(jobId: number): any {
-    const url = this.baseUrl + 'jobrequest/' + jobId
+  public getMaintanaceJobById(jobId: number, jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'jobrequest/' + jobId
+    } else {
+      url = this.housekeeperBaseUrl + 'jobrequest/' + jobId
+    }
     return this.http.get(url);
   }
 
-  public getJobStatus(): any {
-    const url = this.baseUrl + 'get_job_stats/'
+  public getJobStatus(jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'get_job_stats/'
+    } else {
+      url = this.housekeeperBaseUrl + 'get_job_stats/'
+    }
     return this.http.get(url);
   }
 
-  public getPlace(): any {
-    const url = this.baseUrl + 'get_place/'
+  public getPlace(jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'get_place/'
+    } else {
+      url = this.housekeeperBaseUrl + 'get_place/'
+    }
     return this.http.get(url);
   }
 
-  public getPerson(): any {
-    const url = this.baseUrl + 'get_person/'
+  public getPerson(jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'get_person/'
+    } else {
+      url = this.housekeeperBaseUrl + 'get_person/'
+    }
     return this.http.get(url);
   }
 
-  public addNewJobRequest(createJob: CreateJob): any {
-    const url = this.baseUrl + 'jobrequest_create';
+  public addNewJobRequest(createJob: CreateJob, jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'jobrequest_create'
+    } else {
+      url = this.housekeeperBaseUrl + 'jobrequest_create'
+    }
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = createJob;
     return this.http.post(url, body, { headers });
   }
 
-  public updateJobStatus(jobId: number, statusId: number): any {
-    const url = this.baseUrl + 'jobrequest_update/' + jobId;
+  public updateJobStatus(jobId: number, statusId: number, jobtype: string): any {
+    var url = ''
+    if (jobtype == 'maintenance') {
+      url = this.maintennanceBaseUrl + 'jobrequest_update/' + jobId;
+    } else {
+      url = this.housekeeperBaseUrl + 'jobrequest_update/' + jobId;
+    }
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const body = { "status": statusId }
     return this.http.put(url, body, { headers });

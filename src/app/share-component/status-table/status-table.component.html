@@ -18,7 +18,13 @@
       <td>{{ job.rsponsible_person_name }}</td>
       <td>
         <span
-          [ngClass]="{ 'badge text-bg-danger': job.status_name == 'pending' }"
+          class="badge"
+          [ngClass]="{
+            'text-bg-warning': job.status_name == 'pending',
+            'text-bg-primary': job.status_name == 'inprogress',
+            'text-bg-danger': job.status_name == 'reject',
+            'text-bg-success': job.status_name == 'finish'
+          }"
           >{{ job.status_name }}
         </span>
       </td>

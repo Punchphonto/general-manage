@@ -1,5 +1,7 @@
 <div class="card">
-  <div class="{{ headersBg }} p-3 widget-user-header"></div>
+  <div class="{{ headersBg }} p-2 widget-user-header">
+    <h4 class="fw-bold">{{ jobType | titlecase }}</h4>
+  </div>
   <div class="card-body">
     <table class="table table-striped">
       <thead>
@@ -22,14 +24,18 @@
           <td>{{ job.rsponsible_person_name }}</td>
           <td>
             <span
+              class="badge"
               [ngClass]="{
-                'badge text-bg-danger': job.status_name == 'pending'
+                'text-bg-warning': job.status_name == 'pending',
+                'text-bg-primary': job.status_name == 'inprogress',
+                'text-bg-danger': job.status_name == 'reject',
+                'text-bg-success': job.status_name == 'finish'
               }"
               >{{ job.status_name }}
             </span>
           </td>
           <td>
-            <a class="btn btn-primary" (click)="goToupdatePage(job.id)"
+            <a class="btn btn-outline-primary" (click)="goToupdatePage(job.id)"
               >update</a
             >
           </td>

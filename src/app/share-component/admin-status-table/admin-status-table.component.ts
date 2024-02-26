@@ -16,13 +16,11 @@ export class AdminStatusTableComponent {
   }
 
   ngOnInit(): void {
-    if (this.jobType == 'maintenance') {
-      this.getJobListMaintenance()
-    }
+    this.getJobList()
   }
 
-  public getJobListMaintenance(): void {
-    this.job.getAllMaintanaceJob().subscribe((res: Job[]) => {
+  public getJobList(): void {
+    this.job.getAllJobs(this.jobType).subscribe((res: Job[]) => {
       this.jobList = res;
     })
   }

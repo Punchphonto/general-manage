@@ -15,20 +15,24 @@ export class DashboardRequestComponent implements OnInit {
   public placeList: Place[] = [];
   public personList: Person[] = [];
   public jobCreate: CreateJob = new CreateJob();
+  public jobType: string = '';
 
   constructor(private job: JobDataServiceService, public router: Router, private route: ActivatedRoute) { }
 
   async ngOnInit() {
+    await this.route.paramMap.subscribe(params => {
+      this.jobType = String(params.get('job_type'))
+    })
 
-    await this.job.getJobStatus().subscribe((res: JobStatus[]) => {
+    await this.job.getJobStatus(this.jobType).subscribe((res: JobStatus[]) => {
       this.JobStatusList = res;
     })
 
-    await this.job.getPlace().subscribe((res: Place[]) => {
+    await this.job.getPlace(this.jobType).subscribe((res: Place[]) => {
       this.placeList = res;
     })
 
-    await this.job.getPerson().subscribe((res: Person[]) => {
+    await this.job.getPerson(this.jobType).subscribe((res: Person[]) => {
       this.personList = res;
     })
   }
@@ -51,7 +55,7 @@ export class DashboardRequestComponent implements OnInit {
 
     } else {
 
-      this.job.addNewJobRequest(this.jobCreate).subscribe((res: any) => {
+      this.job.addNewJobRequest(this.jobCreate, this.jobType).subscribe((res: any) => {
         if (res.success) {
           this.router.navigateByUrl('/');
         }
