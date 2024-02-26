@@ -8,4 +8,124 @@
     <span class="h3 fw-bold">Update Job Status</span>
   </div>
   <hr />
+  <div class="row">
+    <div class="col-12">
+      <div class="col-12">
+        <div class="card">
+          <div class="bg-primary p-3 widget-user-header"></div>
+          <div class="card-body p-4">
+            <div class="row mb-3">
+              <div class="col-7">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Request Name
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  [(ngModel)]="updateJob.request_name"
+                  disabled
+                />
+              </div>
+              <div class="col-5">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Telephone
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  [(ngModel)]="updateJob.telephone"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Place
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  [(ngModel)]="updateJob.place_name"
+                  disabled
+                />
+              </div>
+              <div class="col-6">
+                <label for="exampleFormControlInput1" class="form-label">
+                  Request To
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  [(ngModel)]="updateJob.rsponsible_person_name"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-8">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  Topic
+                </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  [(ngModel)]="updateJob.job_topic"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-8">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  Request Detail
+                </label>
+                <textarea
+                  class="form-control"
+                  id="exampleFormControlTextarea1"
+                  rows="3"
+                  [(ngModel)]="updateJob.job_detail"
+                  disabled
+                ></textarea>
+              </div>
+            </div>
+            <div class="row mb-3">
+              <div class="col-8">
+                <label for="exampleFormControlTextarea1" class="form-label">
+                  Update Status
+                </label>
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  [(ngModel)]="updateStatusId"
+                >
+                  <option
+                    *ngFor="let person of statusList"
+                    value="{{ person.id }}"
+                  >
+                    {{ person.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-3">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="updateStatus()"
+                >
+                  update job status
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

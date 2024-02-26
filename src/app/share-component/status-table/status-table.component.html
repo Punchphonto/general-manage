@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Place</th>
+      <th scope="col">Request by</th>
+      <th scope="col">Request to</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobList; let i = index">
+      <td>{{ i + 1 }}</td>
+      <td>{{ job.job_topic }}</td>
+      <td>{{ job.place_name }}</td>
+      <td>{{ job.request_name }}</td>
+      <td>{{ job.rsponsible_person_name }}</td>
+      <td>
+        <span
+          class="badge"
+          [ngClass]="{
+            'text-bg-warning': job.status_name == 'pending',
+            'text-bg-primary': job.status_name == 'inprogress',
+            'text-bg-danger': job.status_name == 'reject',
+            'text-bg-success': job.status_name == 'finish'
+          }"
+          >{{ job.status_name }}
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
