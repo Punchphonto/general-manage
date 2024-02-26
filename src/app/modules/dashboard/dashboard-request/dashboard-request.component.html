@@ -5,7 +5,7 @@
       routerLink="/dashboard"
       >Dashbaord >
     </a>
-    <span class="h3 fw-bold">Request Job</span>
+    <span class="h3 fw-bold">Request job {{ jobType }}</span>
   </div>
   <hr />
   <div class="card">
@@ -58,7 +58,11 @@
             aria-label="Default select example"
             [(ngModel)]="jobCreate.rsponsible_person"
           >
-            <option *ngFor="let person of personList" value="{{ person.id }}">
+            <option
+              *ngFor="let person of personList; let i = index"
+              value="{{ person.id }}"
+              [selected]="i == 0"
+            >
               {{ person.name }}
             </option>
           </select>
@@ -97,6 +101,7 @@
             class="btn btn-primary"
             (click)="sendRequestJob()"
           >
+            <fa-icon [icon]="faPaperPlane" class="p-1"></fa-icon>
             Send Request
           </button>
         </div>

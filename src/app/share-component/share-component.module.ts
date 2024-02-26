@@ -5,6 +5,9 @@ import { StatusTableComponent } from './status-table/status-table.component';
 import { AdminStatusTableComponent } from './admin-status-table/admin-status-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobDataServiceService } from '../serivces/api-services/job-data-service.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbPaginationModule, NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { DisplaJobIdPipe } from '../pipe/displa-job-id.pipe';
 
 
 
@@ -16,7 +19,11 @@ import { JobDataServiceService } from '../serivces/api-services/job-data-service
   ],
   imports: [
     HttpClientModule,
-    CommonModule
+    CommonModule,
+    FontAwesomeModule,
+    NgbPaginationModule,
+    NgbTypeaheadModule,
+    DisplaJobIdPipe
   ],
   exports: [
     StatusTableComponent,
@@ -24,7 +31,8 @@ import { JobDataServiceService } from '../serivces/api-services/job-data-service
     AdminStatusTableComponent
   ],
   providers: [
-    JobDataServiceService
+    JobDataServiceService,
+
   ]
 })
 export class ShareComponentModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Job, JobStatus } from '../../../models/models'
 import { JobDataServiceService } from '../../../serivces/api-services/job-data-service.service'
 import { Router, ActivatedRoute } from '@angular/router';
+import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admin-job-update',
@@ -15,6 +16,7 @@ export class AdminJobUpdateComponent implements OnInit {
   public jobType: string = '';
   public jobId: number = 0;
   public updateStatusId!: number
+  public faPaperPlane = faPaperPlane;
 
   constructor(private job: JobDataServiceService, public router: Router, private route: ActivatedRoute) {
 
