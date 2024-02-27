@@ -18,6 +18,8 @@ export class DashboardRequestComponent implements OnInit {
   public jobCreate: CreateJob = new CreateJob();
   public jobType: string = '';
   public faPaperPlane = faPaperPlane;
+  public isError: boolean = false;
+  public errorMsg: string = '';
 
   constructor(private job: JobDataServiceService, public router: Router, private route: ActivatedRoute) { }
 
@@ -39,22 +41,33 @@ export class DashboardRequestComponent implements OnInit {
     })
   }
 
+  public showError(errorMsg: string): void {
+    this.isError = true
+    this.errorMsg = errorMsg
+  }
+
   public async sendRequestJob() {
     const pending = this.JobStatusList.find(status => status.name === 'pending')
     this.jobCreate.status = pending ? pending.id : 1;
 
     if (!this.jobCreate.request_name) {
-
+      this.showError('please fill in request nmae')
+      return
     } else if (!this.jobCreate.telephone) {
-
+      this.showError('please fill in telephone')
+      return
     } else if (!this.jobCreate.place) {
-
+      this.showError('please select place')
+      return
     } else if (!this.jobCreate.rsponsible_person) {
-
+      this.showError('please rsponsible person')
+      return
     } else if (!this.jobCreate.job_topic) {
-
+      this.showError('please Topic')
+      return
     } else if (!this.jobCreate.job_detail) {
-
+      this.showError('Detail')
+      return
     } else {
 
       this.job.addNewJobRequest(this.jobCreate, this.jobType).subscribe((res: any) => {

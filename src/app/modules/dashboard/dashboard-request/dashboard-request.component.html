@@ -11,6 +11,13 @@
   <div class="card">
     <div class="bg-warning p-2 widget-user-header"></div>
     <div class="card-body p-4">
+      <div class="row mb-4" *ngIf="isError">
+        <div class="col-12">
+          <div class="alert alert-danger fw-bold" role="alert">
+            {{ errorMsg }}
+          </div>
+        </div>
+      </div>
       <div class="row mb-3">
         <div class="col-7">
           <label for="exampleFormControlInput1" class="form-label">
