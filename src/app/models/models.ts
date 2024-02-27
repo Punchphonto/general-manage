@@ -22,6 +22,7 @@ export class CreateJob {
     status!: number
     place!: number
     rsponsible_person!: number
+    token!: string
 }
 
 

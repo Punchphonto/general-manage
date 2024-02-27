@@ -71,8 +71,10 @@ export class JobDataServiceService {
     } else {
       url = this.housekeeperBaseUrl + 'jobrequest_create'
     }
+    const userToken = String(sessionStorage.getItem('token'));
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = createJob;
+    var body = createJob;
+    body.token = userToken
     return this.http.post(url, body, { headers });
   }
 
@@ -84,7 +86,8 @@ export class JobDataServiceService {
       url = this.housekeeperBaseUrl + 'jobrequest_update/' + jobId;
     }
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    const body = { "status": statusId }
+    const userToken = String(sessionStorage.getItem('token'));
+    const body = { "status": statusId, "token": userToken }
     return this.http.put(url, body, { headers });
   }
 

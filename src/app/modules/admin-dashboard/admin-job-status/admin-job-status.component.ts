@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
+import { faUserShield } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-admin-job-status',
@@ -7,5 +7,5 @@ import { faClipboardList } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./admin-job-status.component.scss']
 })
 export class AdminJobStatusComponent {
-  public faClipboard = faClipboardList;
+  public faClipboard = faUserShield;
 }
