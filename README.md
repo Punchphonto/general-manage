@@ -10,12 +10,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## to login after run back-end
 Admin 
-username = admin
-password = pP-111111
+- username = admin
+- password = pP-111111
 
 User
-username = user
-password = pP-222222
+- username = user
+- password = pP-222222
 
 
 ## Development server
